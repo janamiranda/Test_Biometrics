@@ -17,6 +17,7 @@ export default function App() {
   //é inciado como true para que ja mostre o banner modal na inicializacao
  //jdsagfhjkagsdhjkfgkhjasdf
  //ahdfjasdhjbajsdf
+ //Deuzito
 
   async function authenticate() {
     //transformacao em funcao asincrona pra utilizar o away(??)
