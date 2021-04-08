@@ -10,8 +10,15 @@ import {
   Platform
 } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './Home';
+import Login from './Login';
 
 export default function App() {
+
+  //VERIFICA SE O USUARIO
+
   const [isModalVisible, setIsModalVisible] = useState(true);
   //cria um state para que possa ser gerenciado o visible do modal
   //é inciado como true para que ja mostre o banner modal na inicializacao
@@ -47,49 +54,19 @@ export default function App() {
   Platform.OS === "ios" && authenticate();
   //verifica se a plataforma a ser utilizada é iOS
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.loginText}
-        >Wellcome to YourBank :D
-      </Text>
-      <Text style={styles.loginText}
-        >Press the button to log in</Text>
-      <TouchableOpacity style={styles.button}//no toque do botao autenticar, é feito a leitura
-        onPress={() => {
-          authenticate();
-        }}
-      >
-        <Text>Authenticate</Text>
-      </TouchableOpacity>
+  const Stack = createStackNavigator();
 
-      
-      {Platform.OS === "android" && (
-      //esse modal so é exibito nos dispositivos android
-      //pra isso é necessrio fazer a verificacao
-      
-        <Modal
-          animationType="slide"
-          transparent={true}//pra que o modal nao cubra a tela de branco
-          visible={isModalVisible}//definida baseada no state do react
-          onShow={authenticate}//chama a funcao autenticacao
-        >
-          <View style={styles.modal}>
-            <Text style={styles.authText}>
-              Authemticate using your finger print
-            </Text>
-            <TouchableOpacity
-              onPress={() => {
-                LocalAuthentication.cancelAuthenticate();//cancela a autenticacao pelo usuário
-                setIsModalVisible(false);
-              }}
-            >
-              <Text style={styles.cancelText}>Cancel</Text>
-            </TouchableOpacity>
-          </View>
-        </Modal>
-      )}
-    </SafeAreaView>
-  );
+  return (
+
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Login" component={Login} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
+
+
 }
 
 const styles = StyleSheet.create({
