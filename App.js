@@ -22,6 +22,8 @@ export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(true);
   //cria um state para que possa ser gerenciado o visible do modal
   //é inciado como true para que ja mostre o banner modal na inicializacao
+ //jdsagfhjkagsdhjkfgkhjasdf
+ //ahdfjasdhjbajsdf
 
   async function authenticate() {
     //transformacao em funcao asincrona pra utilizar o away(??)
