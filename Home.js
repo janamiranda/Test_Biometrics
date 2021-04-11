@@ -7,7 +7,7 @@ export default function Home(props){
     return (
     
     <View>
-        <Text>Esse eh o componente Home</Text>
+        <Text>Esse eh o componente Home - whatever</Text>
         <Button title='Ir para Login' onPress={()=>props.navigation.navigate('Login',)}></Button>
     </View>
     
