@@ -9,6 +9,9 @@ export default function Login(props){
     <Text>
       Wellcome to YourBank :D
     </Text>
+    <Text>
+      Jana :D
+    </Text>
     <Text style={styles.loginText}
       >Press the button to log in</Text>
     <TouchableOpacity style={styles.button}//no toque do botao autenticar, é feito a leitura
